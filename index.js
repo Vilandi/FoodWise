@@ -4,7 +4,7 @@ async function fetchData(){
 
     try{
         
-        const foodName = document.getElementById("foodName").value.toLowerCase()
+        const foodName = await translateFood()
         const foodQuantity = document.getElementById("foodQuantity").value
 
         const response = await fetch("https://api.edamam.com/api/nutrition-data?app_id=ebf2bcdc&app_key=6d59a21eb26b81aea1c91e651c0f54a0&nutrition-type=cooking&ingr=" + foodName + " " + foodQuantity + "g")
@@ -85,6 +85,31 @@ async function fetchData(){
     }
 
 
+}
+async function translateFood(){
+    const foodDictionary = {
+        "maçã": "apple",
+        "banana": "banana",
+        "laranja": "orange",
+        "morango": "strawberry",
+        "pão": "bread",
+        "carne": "meat",
+        "peixe": "fish",
+        "frango": "chicken",
+        "leite": "milk",
+        "ovo": "egg",
+        "arroz": "rice",
+        "feijão": "beans",
+        "batata": "potato",
+        "tomate": "tomato",
+        "cenoura": "carrot",
+        "queijo": "cheese",
+        "manteiga": "butter",
+        "café": "coffee",
+    }
+    const foodName = document.getElementById("foodName").value.toLowerCase()
+    const foodNameTranslated = foodDictionary[foodName.toLowerCase()]
+    return foodNameTranslated
 }
 let totalCalories = 0
 let totalFat = 0
