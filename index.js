@@ -1,3 +1,37 @@
+document.addEventListener('DOMContentLoaded', function () {
+
+
+    const popup = document.getElementById('foodResponse')
+    const closeBtn = document.querySelector('.close')
+    const showPopupButton = document.getElementById("showPopup");
+
+
+    showPopupButton.addEventListener("click", () => {
+        popup.style.display = "flex";
+    })
+
+    function closePopup() {
+        popup.style.display = 'none'
+    }
+
+
+    closeBtn.addEventListener('click', closePopup)
+
+    window.addEventListener('click', function (event) {
+        if (event.target === popup) {
+            closePopup()
+        }
+    })
+
+
+    document.getElementById('showPopup').addEventListener('click', function () {
+        translateFood()
+        fetchData().then(() => {
+            showPopup()
+        })
+    })
+})
+
 async function fetchData(){
 
 
@@ -6,7 +40,6 @@ async function fetchData(){
         
         const foodName = await translateFood()
         const foodQuantity = document.getElementById("foodQuantity").value
-
         const response = await fetch("https://api.edamam.com/api/nutrition-data?app_id=ebf2bcdc&app_key=6d59a21eb26b81aea1c91e651c0f54a0&nutrition-type=cooking&ingr=" + foodName + " " + foodQuantity + "g")
 
 
@@ -77,6 +110,8 @@ async function fetchData(){
         document.getElementById("iron").innerHTML = tempData.iron.quantity + tempData.iron.unit + " de ferro"
         return(tempData)
     }
+        
+        
 
     catch(error){
 
