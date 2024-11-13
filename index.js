@@ -141,10 +141,12 @@ async function translateFood(){
         "queijo": "cheese",
         "manteiga": "butter",
         "café": "coffee",
+        "laranja": "orange",
+        "manga": "mango",
     }
     const foodName = document.getElementById("foodName").value.toLowerCase()
-    const foodNameTranslated = foodDictionary[foodName.toLowerCase()]
-    return foodNameTranslated
+    const foodNameTranslated = foodDictionary[foodName]
+    return foodNameTranslated || foodName
 }
 let totalCalories = 0
 let totalFat = 0
