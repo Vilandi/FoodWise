@@ -146,6 +146,12 @@ async function translateFood(){
         "goiaba": "guava",
         "uva": "grape",
         "chocolate": "chocolate",
+        "arroz cozido": "cooked rice",
+        "feijão cozido": "cooked beans"'
+        "frango cozido": "cooked chicken",
+        "frango frito": "fried chicken",
+        "carne cozida": "cooked meat",
+        "alface:" "lettuce",
     }
     const foodName = document.getElementById("foodName").value.toLowerCase()
     const foodNameTranslated = foodDictionary[foodName]
