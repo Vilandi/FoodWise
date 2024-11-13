@@ -147,7 +147,6 @@ async function translateFood(){
         "uva": "grape",
         "chocolate": "chocolate",
         "arroz cozido": "cooked rice",
-        "feijão cozido": "cooked beans",
         "frango cozido": "cooked chicken",
         "frango frito": "fried chicken",
         "carne cozida": "cooked meat",
