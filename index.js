@@ -146,7 +146,7 @@ async function translateFood(){
     }
     const foodName = document.getElementById("foodName").value.toLowerCase()
     const foodNameTranslated = foodDictionary[foodName]
-    return foodNameTranslated || foodName
+    return foodNameTranslated
 }
 let totalCalories = 0
 let totalFat = 0
